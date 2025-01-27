@@ -25,10 +25,10 @@ This project provides an image upload service with key features for secure and e
 
 ```bash
 # Clone the repository
-git clone https://github.com/Basit787/S3_Image_upload.git
+git clone [https://github.com/Basit787/S3_Image_upload.git](https://github.com/Basit787/Image_Upload_Application.git)
 
 # Navigate to the project directory
-cd S3_Image_upload
+cd Image_Upload_Application
 
 # Install dependencies
 npm install
