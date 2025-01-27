@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  image-upload:
+    image: mongo
+    container_name: timage-upload-container
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: image-upload
+      MONGO_INITDB_ROOT_PASSWORD: secretpass
+    volumes:
+      - mongodb-data:/data/var/db
+
+volumes:
+  mongodb-data:
