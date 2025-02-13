@@ -20,11 +20,30 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { FormSchema, FormSchemaType } from "@/zod/FormValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+const FormSchema = z.object({
+  image: z
+    .instanceof(File)
+    .refine((file) => file.size < 2097152, {
+      message: "Image should be less than 2mb",
+    })
+    .refine(
+      (file) =>
+        ["image/jpeg", "image/jpg", "image/png", "image/webp"].includes(
+          file.type
+        ),
+      {
+        message: "Only .jpg, .jpeg, .png and .webp formats are supported",
+      }
+    ),
+});
+
+type FormSchemaType = z.infer<typeof FormSchema>;
 
 const postImage = async (formData: FormData) => {
   const response = await ApiInstance.post("/image/uploadImage", formData);

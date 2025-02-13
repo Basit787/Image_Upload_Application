@@ -1,6 +1,16 @@
 "use client";
-import { DialogContextModalDetail, DialogContextType } from "@/types/types";
 import React, { createContext, ReactNode, useContext, useState } from "react";
+
+interface DialogContextModalDetail {
+  open: boolean;
+  id: string;
+}
+
+interface DialogContextType {
+  openDialog: (id: string) => void;
+  closeDialog: () => void;
+  modal: DialogContextModalDetail;
+}
 
 const DeleteDialogContext = createContext<DialogContextType | undefined>(
   undefined

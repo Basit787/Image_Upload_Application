@@ -14,7 +14,6 @@ import { useDeleteDialogContext } from "@/provider/DeleteDialogProvider";
 import { useViewImageDialogContext } from "@/provider/ViewImageProvider";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Trash } from "lucide-react";
 import { useCallback } from "react";
 
 const deleteImage = async (id: string) => {

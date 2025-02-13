@@ -1,6 +1,18 @@
 "use client";
-import { ViewImageModal, ViewImageModalDetail } from "@/types/types";
 import React, { createContext, ReactNode, useContext, useState } from "react";
+
+interface ViewImageModalDetail {
+  open: boolean;
+  imageSrc: string;
+  imageId: string;
+  imageName: string;
+}
+
+interface ViewImageModal {
+  onOpen: (src: string, id: string, name: string) => void;
+  onClose: () => void;
+  modal: ViewImageModalDetail;
+}
 
 const ViewImageModalContext = createContext<ViewImageModal | undefined>(
   undefined
